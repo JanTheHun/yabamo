@@ -1,0 +1,49 @@
+{
+    "engineName": "Engine200",
+    "port": 3000,
+    "routes": [
+        {
+            "reqpath": "/",
+            "method": "GET",
+            "responses": {
+                "success": {
+                    "type": "string",
+                    "data": "aham.."
+                },
+                "json": {
+                    "type":"json",
+                    "data": {
+                        "responseType": "json response"
+                    }
+                },
+                "error": {
+                    "type": "string",
+                    "data": "ERROR!!"
+                }
+            },
+            "currentResponse": "json"
+        },
+        
+        {
+            "reqpath": "/",
+            "method": "POST",
+            "responses": {
+                "success": {
+                    "type": "json",
+                    "data": {
+                        "response":"AHAM_POST"
+                    }
+                },
+                "error": {
+                    "type": "string",
+                    "data": "ERROR_post!!"
+                }
+            },
+            "currentResponse": "success"
+        }
+    ],
+    "fallback": {
+        "type": "string",
+        "data": "fallback"
+    }
+}

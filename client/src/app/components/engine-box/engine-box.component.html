@@ -1,0 +1,24 @@
+<div class="engineFrame">
+
+  <div class="engineHeader">
+<!-- 
+    <div class="engineNameBox">
+      <div>{{_engineName}}</div>
+    </div> -->
+
+    <div class="engineControls">
+      <fa name="play"
+          class="engineBtn engineStartBtn"
+          [ngClass]="{ 'active': !_running}"
+          (click)="engineComm('start')"></fa>
+      <fa name="stop"
+          class="engineBtn engineStopBtn"
+          [ngClass]="{ 'active': _running}"
+          (click)="engineComm('stop')"></fa>
+    </div>
+
+
+  </div>
+  
+
+</div>

@@ -1,0 +1,42 @@
+#appFrame {
+    height: calc(100vh - 18px);
+    border: solid 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+#appHeader {
+    flex: 0 0 40px;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    border-width: 0px 0px 1px 0px;
+    border-color: #999;
+    border-style: solid;
+}
+
+    .menuTab {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border-width: 0px 1px 1px 0px;
+        padding: 5px 5px 2px 10px;
+        border-color: #999;
+        border-style: solid;
+        display: inline-block;
+    }
+
+    .menuTab:hover {
+        background-color: #ddd;
+
+    }
+
+    .menuTab.selected {
+        background-color: #ddd;
+        color: #000;
+    }
+
+#appPanels {
+    flex: 1 0 1px;
+    top: 100px;
+    height: 100%;
+    width: 100%;
+}

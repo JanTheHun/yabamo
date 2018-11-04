@@ -1,0 +1,62 @@
+
+    /*
+        Frame
+    */
+
+            .configFrame {
+                width: calc(100% - 20px);
+                margin: 5px;
+                padding: 5px;
+            }
+
+
+
+    /*
+        Header
+    */
+
+.configHeader {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+
+.configRoutes {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.singleRoute {
+    margin-left: 10px;
+}
+
+.responseRow {
+    margin-left: 10px;
+}
+
+    .responseRow:hover {
+        background-color: #ddd;
+    }
+
+.currentResponse {
+    font-weight: 700;
+}
+
+.powerBtn {
+    color: #fff;
+    background-color: #bbb;
+    border-radius: 15px;
+    border-color: #444;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.powerBtn.powerBtnOn {
+    padding: 0px 3px 0px 3px;
+    color: #080;
+}
+
+.powerBtn.powerBtnOff {
+    padding: 0px 0px 0px 4px;
+    color: #a00;
+}

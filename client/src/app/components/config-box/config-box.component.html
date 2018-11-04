@@ -1,0 +1,73 @@
+<div *ngIf="_config != null"
+      class="configFrame">
+
+  <div class="engineCreated">
+    <div>
+
+      <span *ngIf="_engineCreated != null">Engine: {{_engineCreated}}</span>
+      <span *ngIf="_engineCreated == null">no engine created</span>
+
+    </div>
+
+    <div>
+      <fa name="power-off"
+      *ngIf="_engineCreated != null"
+      class="powerBtn powerBtnOn"
+      (click)="createEngine()"></fa>
+      <fa name="power-off"
+      *ngIf="_engineCreated == null"
+      class="powerBtn powerBtnOff"
+      (click)="createEngine()"></fa>
+      <input  *ngIf="_engineCreated == null"
+              type="text"
+              [placeholder]="_configName"
+              [(ngModel)]="newEngineName" />
+    </div>
+  </div>
+
+  <div  class="configHeader">
+    <div>name: {{_config.configName}}</div>
+    <div>port: {{_config.port}}</div>
+  </div>
+
+  <div>
+
+    <div class="configRoutes">
+
+      <div (click)="routesVisible = !routesVisible">routes<span *ngIf="!routesVisible">({{_config.routes.length}})</span></div>
+
+        <div *ngIf="routesVisible">
+
+          <div  *ngFor="let route of _config.routes; let i = index"
+                class="singleRoute">
+
+            <div (click)="routeVisibility[i] = !routeVisibility[i]">{{route.method}} '{{route.reqpath}}'</div>
+
+            <div  class="responseList"
+                  *ngIf="routeVisibility[i]">
+
+              <div  class="responseRow"
+                    [ngClass]="{ 'currentResponse': route.currentResponse == response}"
+                    *ngFor="let response of getList(route.responses)"
+                    (click)="changeCurrentResponse(i,response)">{{response}}
+              
+                    <!-- <div>type: {{route.responses[response].type}}</div>
+                    <div>data: {{route.responses[response].data}}</div> -->
+
+              </div>    
+
+            </div>
+
+          </div>
+
+        </div>
+
+    </div>
+    
+    
+    <div>
+    </div>
+    
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div id="appFrame">
+
+  <div id="appHeader">
+
+    <div class="menuTab"
+          [ngClass]="{ 'selected': contentToShow == 'configs'}"
+          (click)="contentToShow = 'configs'">Configs<span *ngIf="configArray.length > 0"> ({{configArray.length}})</span></div><div class="menuTab"
+              [ngClass]="{ 'selected': contentToShow == 'engines'}"
+              (click)="contentToShow = 'engines'">Engines<span *ngIf="engineArray.length > 0"> ({{engineArray.length}})</span></div>
+
+    <!--
+    <div id="enginePanels">
+
+      <div *ngFor="let engTab of engineArray"
+            class="engineTab"
+            (click)="selectedEngine = engTab">{{engTab}}</div>
+
+    </div>
+    -->
+  </div>
+
+  
+  <div id="appPanels">
+    
+    <div id="enginesPanel" *ngIf="contentToShow == 'engines'">
+
+      <div *ngFor="let engTab of engineArray"
+            class="menuTab"
+            [ngClass]="{ 'selected': selectedEngine == engTab}"
+            (click)="selectedEngine = engTab">{{engTab}}</div>
+    
+
+      <app-engine-box *ngIf="selectedEngine !== null"
+                      [engineName]="selectedEngine"
+                      [engine]="engines[selectedEngine]"
+                      [config]="configs[engines[selectedEngine].config]"
+                      [listening]="instances.indexOf(selectedEngine) != -1"
+                      (engineCommand)="engineCommand($event)"></app-engine-box>
+
+    </div>
+
+    
+    <div id="configList" *ngIf="contentToShow == 'configs'">
+        
+      <div *ngFor="let confTab of configArray"
+            class="menuTab"
+            [ngClass]="{ 'selected': selectedConfig == confTab}"
+            (click)="selectedConfig = confTab">{{confTab}}</div>
+
+      <app-config-box *ngIf="selectedConfig != null"
+                      [configName]="selectedConfig"
+                      [config]="configs[selectedConfig]"
+                      [engineCreated]="enginesByConfig[selectedConfig]"
+                      (currentResponseChanged)="changeCurrentResponse($event)"
+                      (toggleEngine)="toggleEngineState($event)"></app-config-box>
+      
+    </div>
+    
+  </div>
+
+</div>
+
